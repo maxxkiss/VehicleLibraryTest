@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Reference Include="VehicleLibrary">
-      <HintPath>..\..\VehicleLibrary\VehicleLibrary\bin\Debug\net6.0\VehicleLibrary.dll</HintPath>
+      <HintPath>..\..\VehicleLibrary\VehicleLibrary\obj\Debug\net6.0\VehicleLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 

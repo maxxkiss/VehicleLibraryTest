@@ -15,7 +15,7 @@ namespace VehicleUnitTest
                 new Wheel("Goodyear"),
                 new Wheel("Goodyear"),
             };
-            var carrier = new Suspension(wheels);
+            var carrier = new Suspension(wheels, engine);
             var car = new Car("Ford", "F-150", engine, carrier);
             // act
             var result = car.Move();
@@ -35,7 +35,7 @@ namespace VehicleUnitTest
                 new Wheel("Goodyear"),
                 new Wheel("Goodyear"),
             };
-            var carrier = new Suspension(wheels);
+            var carrier = new Suspension(wheels, engine);
             var car = new Car("Ford", "F-150", engine, carrier);
             // act
             var result = car.Stop();
@@ -53,11 +53,10 @@ namespace VehicleUnitTest
                 new Propeller("HighFly"),
                 new Propeller("HighFly"),
             };
-            var carrier = new Axis(props);
+            var carrier = new Axis(props, engine);
             var copter = new Car("Boeing", "CH-47", engine, carrier);
             // act
             copter.Move();
-            carrier.Acceleration();
             var result = copter.Stop();
             // assert
             Assert.AreEqual(result, "Foof");
@@ -75,13 +74,12 @@ namespace VehicleUnitTest
                 new Wheel("Goodyear"),
                 new Wheel("Goodyear"),
             };
-            var carrier = new Suspension(wheels);
+            var carrier = new Suspension(wheels, engine);
             var car = new Car("Ford", "F-150", engine, carrier);
             // act
             car.Move();
-            carrier.Acceleration();
-            carrier.Acceleration();
-            carrier.Acceleration();
+            car.Move();
+            car.Move();
             var result = car.Stop();
             // assert
             Assert.AreEqual(result, "ShhhShhhShhh");
@@ -93,11 +91,10 @@ namespace VehicleUnitTest
             // arrange
             var engine = new DieselEngine(2, 6, 180);
             var wheels = new Wheel[0];
-            var carrier = new Suspension(wheels);
+            var carrier = new Suspension(wheels, engine);
             var car = new Car("Ford", "F-150", engine, carrier);
             // act
             car.Move();
-            carrier.Acceleration();
             var result = car.Stop();
             // assert
             Assert.AreEqual(result, "...");
